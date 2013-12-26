@@ -16,4 +16,7 @@ public final class Type {
   public static final String FUNCTION = "function";
   
   public static final String EXCEPTION = "exception";
+  
+  public static final String TEST = "test";
+  
 }

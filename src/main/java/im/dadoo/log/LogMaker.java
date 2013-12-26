@@ -37,4 +37,10 @@ public final class LogMaker {
     content.put("trace", sb.toString());
     return new Log(serviceName, Type.EXCEPTION, System.currentTimeMillis(), content);
   }
+  
+  public static Log makeTestLog(String serviceName, Object fill) {
+    Map<String, Object> content = new HashMap<String, Object>();
+    content.put("fill", fill);
+    return new Log(serviceName, Type.TEST, System.currentTimeMillis(), content);
+  }
 }
