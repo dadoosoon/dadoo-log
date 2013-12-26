@@ -6,6 +6,7 @@
 
 package im.dadoo.log;
 
+import java.io.Serializable;
 import java.util.Map;
 import org.apache.commons.lang3.time.DateFormatUtils;
 
@@ -13,7 +14,9 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  *
  * @author codekitten
  */
-public class Log {
+public class Log implements Serializable {
+  
+  protected String id;
   
   protected String serviceName;
   
@@ -36,12 +39,28 @@ public class Log {
   public String toString() {
     StringBuilder sb = new StringBuilder();
     sb.append("{");
+    sb.append("id:").append(id).append(",");
     sb.append("serviceName:").append(serviceName).append(",");
     sb.append("type:").append(type).append(",");
     sb.append("createDatetime:").append(DateFormatUtils.ISO_DATETIME_FORMAT.format(createDatetime)).append(",");
     sb.append("content:").append(content);
     sb.append("}");
     return sb.toString();
+  }
+  
+  
+  /**
+   * @return the id
+   */
+  public String getId() {
+    return id;
+  }
+
+  /**
+   * @param id the id to set
+   */
+  public void setId(String id) {
+    this.id = id;
   }
   
   /**
