@@ -7,7 +7,9 @@
 package im.dadoo.log;
 
 import im.dadoo.log.type.Type;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -31,10 +33,11 @@ public final class LogMaker {
 		content.put("class", ex.getClass().getName());
 		content.put("description", description);
     StringBuilder sb = new StringBuilder();
+    List<String> trace = new ArrayList<String>();
     for (StackTraceElement e : ex.getStackTrace()) {
-			sb.append(e.toString()).append(System.getProperty("line.separator"));
+      trace.add(e.toString());
 		}
-    content.put("trace", sb.toString());
+    content.put("trace", trace);
     return new Log(serviceName, Type.EXCEPTION, System.currentTimeMillis(), content);
   }
   
