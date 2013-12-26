@@ -32,7 +32,7 @@ public final class LogMaker {
 		content.put("description", description);
     StringBuilder sb = new StringBuilder();
     for (StackTraceElement e : ex.getStackTrace()) {
-			sb.append(e.toString()).append(System.getProperty("line.seperator"));
+			sb.append(e.toString()).append(System.getProperty("line.separator"));
 		}
     content.put("trace", sb.toString());
     return new Log(serviceName, Type.EXCEPTION, System.currentTimeMillis(), content);
