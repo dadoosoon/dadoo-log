@@ -31,6 +31,7 @@ public final class LogMaker {
   public static Log makeExceptionLog(String serviceName, String description, Exception ex) {
     Map<String, Object> content = new HashMap<String, Object>();
 		content.put("class", ex.getClass().getName());
+    content.put("message", ex.getMessage());
 		content.put("description", description);
     StringBuilder sb = new StringBuilder();
     List<String> trace = new ArrayList<String>();
