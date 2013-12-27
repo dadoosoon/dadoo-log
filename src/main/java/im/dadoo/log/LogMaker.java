@@ -41,9 +41,19 @@ public final class LogMaker {
     return new Log(serviceName, Type.EXCEPTION, System.currentTimeMillis(), content);
   }
   
+  public static Log makeVisitLog(String serviceName, String ip, int port, String method,
+          Map<String,String> headers) {
+    Map<String, Object> content = new HashMap<String, Object>();
+    content.put("ip", ip);
+    content.put("port", port);
+    content.put("method", method);
+    content.put("headers", headers);
+    return new Log(serviceName, Type.VISIT, System.currentTimeMillis(), content);
+  }
   public static Log makeTestLog(String serviceName, Object fill) {
     Map<String, Object> content = new HashMap<String, Object>();
     content.put("fill", fill);
     return new Log(serviceName, Type.TEST, System.currentTimeMillis(), content);
   }
+  
 }

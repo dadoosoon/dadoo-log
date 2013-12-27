@@ -19,4 +19,6 @@ public final class Type {
   
   public static final String TEST = "test";
   
+  public static final String VISIT = "visit";
+  
 }
