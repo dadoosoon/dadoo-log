@@ -33,7 +33,6 @@ public final class LogMaker {
 		content.put("class", ex.getClass().getName());
     content.put("message", ex.getMessage());
 		content.put("description", description);
-    StringBuilder sb = new StringBuilder();
     List<String> trace = new ArrayList<String>();
     for (StackTraceElement e : ex.getStackTrace()) {
       trace.add(e.toString());
@@ -51,6 +50,7 @@ public final class LogMaker {
     content.put("headers", headers);
     return new Log(serviceName, Type.VISIT, System.currentTimeMillis(), content);
   }
+  
   public static Log makeTestLog(String serviceName, Object fill) {
     Map<String, Object> content = new HashMap<String, Object>();
     content.put("fill", fill);
