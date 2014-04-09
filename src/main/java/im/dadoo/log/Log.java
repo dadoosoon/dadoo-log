@@ -49,6 +49,18 @@ public class Log implements Serializable {
     return sb.toString();
   }
   
+  public String toPropertyString() {
+    StringBuilder sb = new StringBuilder();
+    sb.append("{");
+    sb.append("id:").append(getId()).append(",");
+    sb.append("serviceName:").append(getServiceName()).append(",");
+    sb.append("type:").append(getType()).append(",");
+    sb.append("createDatetime:").append(
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime()));
+    sb.append("}");
+    return sb.toString();
+  }
+  
   /**
    * @return the id
    */
