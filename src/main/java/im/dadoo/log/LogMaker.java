@@ -20,7 +20,7 @@ public final class LogMaker {
   
   public static Log makeFunctionLog(String serviceName, String functionName, 
           Object[] args, Object ret, Long time) {
-    Map<String, Object> content = new HashMap<String, Object>();
+    Map<String, Object> content = new HashMap<>();
 		content.put("functionName", functionName);
 		content.put("args", args);
 		content.put("ret", ret);
@@ -29,11 +29,11 @@ public final class LogMaker {
   }
   
   public static Log makeExceptionLog(String serviceName, String description, Exception ex) {
-    Map<String, Object> content = new HashMap<String, Object>();
+    Map<String, Object> content = new HashMap<>();
 		content.put("class", ex.getClass().getName());
     content.put("message", ex.getMessage());
 		content.put("description", description);
-    List<String> trace = new ArrayList<String>();
+    List<String> trace = new ArrayList<>();
     for (StackTraceElement e : ex.getStackTrace()) {
       trace.add(e.toString());
 		}
@@ -43,7 +43,7 @@ public final class LogMaker {
   
   public static Log makeVisitLog(String serviceName, String ip, int port, String method,
           Map<String,String> headers) {
-    Map<String, Object> content = new HashMap<String, Object>();
+    Map<String, Object> content = new HashMap<>();
     content.put("ip", ip);
     content.put("port", port);
     content.put("method", method);
@@ -52,7 +52,7 @@ public final class LogMaker {
   }
   
   public static Log makeTestLog(String serviceName, Object fill) {
-    Map<String, Object> content = new HashMap<String, Object>();
+    Map<String, Object> content = new HashMap<>();
     content.put("fill", fill);
     return new Log(serviceName, Type.TEST, System.currentTimeMillis(), content);
   }

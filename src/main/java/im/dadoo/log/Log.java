@@ -24,6 +24,8 @@ public class Log implements Serializable {
   
   protected Long createDatetime;
   
+  protected Long saveDatetime;
+  
   protected Map<String, Object> content;
 
   public Log() {}
@@ -33,6 +35,7 @@ public class Log implements Serializable {
     this.type = type;
     this.createDatetime = createDatetime;
     this.content = content;
+    this.saveDatetime = null;
   }
   
   @Override
@@ -44,6 +47,8 @@ public class Log implements Serializable {
     sb.append("type:").append(getType()).append(",");
     sb.append("createDatetime:").append(
             DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime())).append(",");
+    sb.append("saveDatetime:").append(
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime())).append(",");
     sb.append("content:").append(getContent());
     sb.append("}");
     return sb.toString();
@@ -56,7 +61,9 @@ public class Log implements Serializable {
     sb.append("serviceName:").append(getServiceName()).append(",");
     sb.append("type:").append(getType()).append(",");
     sb.append("createDatetime:").append(
-            DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime()));
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime())).append(",");
+    sb.append("saveDatetime:").append(
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime()));
     sb.append("}");
     return sb.toString();
   }
@@ -129,6 +136,20 @@ public class Log implements Serializable {
    */
   public void setContent(Map<String, Object> content) {
     this.content = content;
+  }
+
+  /**
+   * @return the saveDatetime
+   */
+  public Long getSaveDatetime() {
+    return saveDatetime;
+  }
+
+  /**
+   * @param saveDatetime the saveDatetime to set
+   */
+  public void setSaveDatetime(Long saveDatetime) {
+    this.saveDatetime = saveDatetime;
   }
  
 }
