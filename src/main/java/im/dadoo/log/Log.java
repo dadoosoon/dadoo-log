@@ -45,10 +45,12 @@ public class Log implements Serializable {
     sb.append("id:").append(getId()).append(",");
     sb.append("serviceName:").append(getServiceName()).append(",");
     sb.append("type:").append(getType()).append(",");
+    if (getSaveDatetime() != null) {
+      sb.append("saveDatetime:").append(
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime())).append(",");
+    }
     sb.append("createDatetime:").append(
             DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime())).append(",");
-    sb.append("saveDatetime:").append(
-            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime())).append(",");
     sb.append("content:").append(getContent());
     sb.append("}");
     return sb.toString();
@@ -60,10 +62,12 @@ public class Log implements Serializable {
     sb.append("id:").append(getId()).append(",");
     sb.append("serviceName:").append(getServiceName()).append(",");
     sb.append("type:").append(getType()).append(",");
+    if (getSaveDatetime() != null) {
+      sb.append("saveDatetime:").append(
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime())).append(",");
+    }
     sb.append("createDatetime:").append(
-            DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime())).append(",");
-    sb.append("saveDatetime:").append(
-            DateFormatUtils.ISO_DATETIME_FORMAT.format(getSaveDatetime()));
+            DateFormatUtils.ISO_DATETIME_FORMAT.format(getCreateDatetime()));
     sb.append("}");
     return sb.toString();
   }
